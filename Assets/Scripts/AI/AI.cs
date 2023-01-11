@@ -7,21 +7,60 @@ public class AI : MonoBehaviour
 {
 
     public NavMeshAgent navMeshAgent;
-    public GameObject destination1;
-    public GameObject destination2;
+
+    public Transform[] destinations;
+    private int i = 0;
+    [Header("------FollowPlayer?--------")]
+    public bool followPlayer;
+    private GameObject player;
+    private float distanceToPlayer;
+    public float distanceToFollowPlayer = 10;
+    public float distanceToFollowPath = 2;
+    public int scoreValue= 20;
     // Start is called before the first frame update
     void Start()
     {
-        navMeshAgent.destination = destination1.transform.position; //se moverá dónde estará el objeto vacio
+        navMeshAgent.destination = destinations[0].transform.position; 
+        player = FindObjectOfType<PlayerMovement>().gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, destination1.transform.position); //guarda lso valores de la distancia
-        if (distance < 2) //si la distancia es menor que 2 con respecto a la destination1
+        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        if (distanceToPlayer <= distanceToFollowPlayer && followPlayer)
         {
-            navMeshAgent.destination = destination2.transform.position; //entonces cambia de posicion
+            FollowPlayer();
         }
+        else 
+        {
+            EnemyPath();
+        }
+    }
+
+    public void EnemyPath()
+    {
+          navMeshAgent.destination = destinations[i].position;
+
+          if(Vector3.Distance(transform.position, destinations[i].position) <= distanceToFollowPath)
+          {
+            if(destinations[i] != destinations[destinations.Length - 1])
+            {
+                i++;
+            }
+            else
+            {
+                i=0;
+            }
+          }
+    }
+    public void FollowPlayer()
+    {
+        navMeshAgent.destination = player.transform.position;
+    }
+
+    public void StarSinking()
+    {
+        Valor.score += scoreValue; 
     }
 }
