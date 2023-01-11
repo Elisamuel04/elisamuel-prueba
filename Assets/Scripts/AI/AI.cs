@@ -16,7 +16,6 @@ public class AI : MonoBehaviour
     private float distanceToPlayer;
     public float distanceToFollowPlayer = 10;
     public float distanceToFollowPath = 2;
-    public int scoreValue= 20;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,8 +58,5 @@ public class AI : MonoBehaviour
         navMeshAgent.destination = player.transform.position;
     }
 
-    public void StarSinking()
-    {
-        Valor.score += scoreValue; 
-    }
+
 }
