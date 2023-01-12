@@ -14,9 +14,9 @@ public class Puntos : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    //void Update()
-    //{
-        //textoPuntos.text = "Vida" + puntos.ToString();
-    //}
+    //Update is called once per frame
+    private void Update()
+    {
+        textoPuntos.text = "Life: " + puntos.ToString();
+    }
 }

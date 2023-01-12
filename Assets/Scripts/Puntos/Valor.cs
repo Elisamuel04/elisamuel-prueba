@@ -5,19 +5,7 @@ using UnityEngine.UI;
 
 public class Valor : MonoBehaviour
 {
-    //public GameObject ObjPuntos;
-    //public float PuntosQueDa;
 
-    
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-        //if (other.tag=="Player") 
-        //{
-            //ObjPuntos.GetComponent<Puntos>().puntos += PuntosQueDa; 
-            //Destroy(gameObject);
-        //}
-    //}
 
   public static int score;
   Text text;
