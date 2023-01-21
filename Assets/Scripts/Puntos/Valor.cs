@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Valor : MonoBehaviour
 {
 
-
+  
   public static int score;
   Text text;
 
@@ -19,5 +19,6 @@ public class Valor : MonoBehaviour
     void Update ()
     {
         text.text = "Score: " + score;
+       
     }
 }

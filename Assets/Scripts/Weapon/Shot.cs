@@ -27,8 +27,9 @@ public class Shot : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            if (Time.time > shotRateTime)
+            if (Time.time > shotRateTime && GameManager.Instance.gunAmmo > 0)
             {
+                GameManager.Instance.gunAmmo--; //
                 audioSource.PlayOneShot(shotShound);
                 GameObject newBullet;
                 newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation); //instanciar el objeto 

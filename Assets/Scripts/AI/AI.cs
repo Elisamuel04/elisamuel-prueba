@@ -11,7 +11,7 @@ public class AI : MonoBehaviour
     public Transform[] destinations;
     private int i = 0;
     [Header("------FollowPlayer?--------")]
-    public bool followPlayer;
+    private bool followPlayer =true;
     private GameObject player;
     private float distanceToPlayer;
     public float distanceToFollowPlayer = 10;
